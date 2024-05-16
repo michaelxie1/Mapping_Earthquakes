@@ -1,4 +1,4 @@
-// Creates the tile layer that will be the background of our map.
+// Creates the tile layer that will be the background of the map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -79,7 +79,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             console.log(data);
             return L.circleMarker(latlng);
           },
-        // Set style for each circleMarker using our styleInfo function.
+        // Set style for each circleMarker using the styleInfo function.
       style: styleInfo,
         // Create a popup for each circleMarker to display the magnitude and
         //  location of the earthquake after the marker has been created and styled.

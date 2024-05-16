@@ -62,7 +62,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             console.log(data);
             return L.circleMarker(latlng);
         },
-      // Set the style for each circleMarker using our styleInfo function.
+      // Set the style for each circleMarker using the styleInfo function.
     style: styleInfo
     }).addTo(map);
 });

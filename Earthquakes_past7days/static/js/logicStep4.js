@@ -43,7 +43,7 @@ L.control.layers(baseMaps, overlays).addTo(map);
 
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
-  // This function returns the style data for each of the earthquakes we plot on
+  // This function returns the style data for each of the earthquakes plotted on
   // the map.  The magnitude of the earthquake is passed into a function to calculate the radius.
   function styleInfo(feature) {
     return {
@@ -90,7 +90,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
 // Creating a GeoJSON layer with the retrieved data.
   L.geoJSON(data, {
-        // We turn each feature into a circleMarker on the map.
+        // Turn each feature into a circleMarker on the map.
         pointToLayer: function(feature, latlng) {
             console.log(data);
             return L.circleMarker(latlng);
