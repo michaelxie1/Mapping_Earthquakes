@@ -1,4 +1,4 @@
-// We create the tile layer that will be the background of our map.
+// Creates the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -13,16 +13,16 @@ let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/sate
 
 
 
-// Create a base layer that holds both maps.
+// Creates a base layer that holds both maps.
 let baseMaps = {
   "Streets": streets,
   "Satellite": satelliteStreets
 };
 
-// Create the earthquake layer for our map.
+// Creates the earthquake layer for the map.
 let earthquakes = new L.layerGroup();
 
-// We define an object that contains the overlays.
+// Define an object that contains the overlays.
 // This overlay will be visible all the time.
 let overlays = {
     Earthquakes: earthquakes
@@ -35,8 +35,7 @@ let map = L.map("mapid",{
     layers: [streets]  
 });
 
-// Then we add a control to the map that will allow the user to change
-// which layers are visible.
+// Add a control to the map that allows the user to change which layers are visible.
 L.control.layers(baseMaps, overlays).addTo(map);
 
 
@@ -46,7 +45,7 @@ L.control.layers(baseMaps, overlays).addTo(map);
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
   // This function returns the style data for each of the earthquakes we plot on
-  // the map. We pass the magnitude of the earthquake into a function
+  // the map. The magnitude of the earthquake is passed into a function
   // to calculate the radius.
   function styleInfo(feature) {
     return {
@@ -93,14 +92,14 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
 // Creating a GeoJSON layer with the retrieved data.
     L.geoJSON(data, {
-        // We turn each feature into a circleMarker on the map.
+        //Turn each feature into a circleMarker on the map.
         pointToLayer: function(feature, latlng) {
             console.log(data);
             return L.circleMarker(latlng);
           },
-        // We set the style for each circleMarker using our styleInfo function.
+        // Set the style for each circleMarker using our styleInfo function.
         style: styleInfo,
-        // We create a popup for each circleMarker to display the magnitude and
+        // Create a popup for each circleMarker to display the magnitude and
         //  location of the earthquake after the marker has been created and styled.
         onEachFeature: function(feature, layer) {
         layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
@@ -128,7 +127,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         "#ea822c",
         "#ea2c2c"
         ];
-            // Looping through our intervals to generate a label with a colored square for each interval.
+            // Looping through intervals to generate a label with a colored square for each interval.
     for (var i = 0; i < magnitudes.length; i++) {
         console.log(colors[i]);
         div.innerHTML +=
