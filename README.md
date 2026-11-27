@@ -17,19 +17,19 @@ An interactive map of every earthquake recorded worldwide in the past 7 days, bu
 
 The data comes straight from the USGS feeds every time the page loads, so the map is always current.
 
-## Background
+## Updates
 
-This project started in the Columbia University Data Analytics Boot Camp (Leaflet / Mapbox module). Since the course, I have:
+The first version of this map was built with Leaflet and Mapbox. Since then, I have:
 
 - **Fixed the tectonic plates layer.** A bug in the data request meant it never loaded.
 - **Fixed major earthquakes of exactly magnitude 5.0 having no colour**, along with other smaller issues such as slow console logging.
 - **Published it as a live demo.** The original used Mapbox base maps, which require a private API key, so nobody else could run it. The final map now uses Esri's free base maps, which need no key.
 
-The original boot-camp submission is preserved at the [`bootcamp-submission`](https://github.com/michaelxie1/Mapping_Earthquakes/tree/bootcamp-submission) tag.
+The original Mapbox version is preserved at the [`original-mapbox`](https://github.com/michaelxie1/Mapping_Earthquakes/tree/original-mapbox) tag.
 
 ## Project structure
 
-The project was built step by step. The final map is in `Earthquake_Challenge/`, and each earlier lesson lives on its own branch:
+The project was built step by step. The final map is in `Earthquake_Challenge/`, and each earlier step lives on its own branch:
 
 | Branch | What it builds |
 |---|---|
@@ -43,7 +43,7 @@ The project was built step by step. The final map is in `Earthquake_Challenge/`,
 | [`Earthquakes_past7days`](https://github.com/michaelxie1/Mapping_Earthquakes/tree/Earthquakes_past7days) | The earthquake map, built in 5 steps (`logicStep1–5.js`) |
 | [`Earthquake_Challenge`](https://github.com/michaelxie1/Mapping_Earthquakes/tree/Earthquake_Challenge) | The final challenge, as originally submitted |
 
-The JSON files in the root folder (`majorAirports.json`, `torontoRoutes.json`, `torontoNeighborhoods.json`) are loaded by the GeoJSON lesson branches.
+The JSON files in the root folder (`majorAirports.json`, `torontoRoutes.json`, `torontoNeighborhoods.json`) are loaded by the GeoJSON branches.
 
 ## How to run it locally
 
@@ -56,7 +56,7 @@ python3 -m http.server
 # then open http://localhost:8000/Earthquake_Challenge/
 ```
 
-The earlier lessons (`Simple_Map/`, `Earthquakes_past7days/` and the lesson branches) still use Mapbox as taught in the course. To run those, create a free [Mapbox](https://www.mapbox.com/) token and save it in that folder's `static/js/config.js`:
+The earlier steps (`Simple_Map/`, `Earthquakes_past7days/` and the other branches) still use Mapbox. To run those, create a free [Mapbox](https://www.mapbox.com/) token and save it in that folder's `static/js/config.js`:
 
 ```js
 const API_KEY = "your-mapbox-token";

@@ -1,10 +1,10 @@
 // Earthquake Challenge — live map of the past 7 days of earthquakes (USGS data).
 //
-// UPDATE (post-boot-camp): the original version used Mapbox base maps, which need a private
+// UPDATE: the original version used Mapbox base maps, which need a private
 // API key stored in config.js. Because config.js is (correctly) kept out of GitHub, nobody else
 // could run the map. The three base maps below now come from free providers that need no key,
 // so the map can be published as a live demo on GitHub Pages. The original Mapbox version is
-// preserved at the `bootcamp-submission` git tag.
+// preserved at the `original-mapbox` git tag.
 
 // All three base maps come from Esri's free, key-free tile services.
 // (OpenStreetMap's own tile servers were tried first, but their usage policy blocks requests
