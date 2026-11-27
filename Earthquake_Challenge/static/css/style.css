@@ -13,6 +13,11 @@ body,
   background-color: #fff;
   border-radius: 5px;
 }
+/* Space above the second legend section ("Major earthquakes"). */
+.legend .legend-heading {
+  display: inline-block;
+  margin-top: 8px;
+}
 .legend i{
   float: left;
   width: 18px;
